@@ -1,0 +1,39 @@
+import pandas as pd
+from tabulate import tabulate
+
+# Define data for EV market segmentation in India
+data = {
+    "Segment": ["High-Income", "Upper-Middle Income", "Middle-Income", "Low-Income", "Ultra-Low Income / Rural Mobility"],
+    "Monthly Income (INR)": ["₹1.5 lakh and above", "₹75K–₹1.5 lakh", "₹30K–₹75K", "Below ₹30K", "Below ₹15K"],
+    "Consumer Profile": [
+        "Urban professionals, business owners, NRIs, tech-savvy",
+        "Salaried professionals, entrepreneurs, upper-class families",
+        "Middle-class families, salaried individuals, Tier 2–3 cities",
+        "Small business owners, delivery agents, gig workers, rural buyers",
+        "Daily wage workers, small farmers, informal sector"
+    ],
+    "EV Preferences": [
+        "Premium EVs, luxury features, brand value, performance",
+        "Value + performance, safety, range, tech",
+        "Affordable pricing, low running cost, basic features, good range",
+        "Extremely cost-sensitive, prefer two-wheelers or entry-level EVs",
+        "Only possible if subsidized; use e-rickshaws or shared transport"
+    ],
+    "Targeted EV Models / Brands": [
+        "BMW iX, Audi e-tron, Mercedes EQS, Volvo XC40 Recharge, Kia EV6, Hyundai Ioniq 5",
+        "Tata Nexon EV Max, MG ZS EV, Mahindra XUV400, BYD Atto 3, Hyundai Kona",
+        "Tata Tiago EV, Tata Punch EV, Citroen eC3, used Nexon EV",
+        "Hero Electric, Ola S1, Ather 450X, Bajaj Chetak, TVS iQube, Mahindra Treo",
+        "E-rickshaws, Kinetic Green, Gemopai, Lohia"
+    ]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Print formatted table
+print("\nEV Market Segmentation in India by Income:\n")
+print(tabulate(df, headers='keys', tablefmt='grid', showindex=False))
+
+# Optional: Export to Excel
+df.to_excel("ev_market_segmentation_india.xlsx", index=False)
